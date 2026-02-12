@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "award",
+    "title": "Premium Quality",
+    "description": "Industry-leading print quality with state-of-the-art equipment and premium materials"
+  },
+  {
+    "icon": "clock",
+    "title": "Fast Turnaround",
+    "description": "Quick delivery options including same-day and express services for urgent orders"
+  },
+  {
+    "icon": "shield",
+    "title": "Quality Guarantee",
+    "description": "100% satisfaction guaranteed with our quality assurance and reprint policy"
+  },
+  {
+    "icon": "headphones",
+    "title": "Expert Support",
+    "description": "Dedicated customer support team available to assist with your printing needs"
+  },
+  {
+    "icon": "users",
+    "title": "Trusted by 5000+",
+    "description": "Serving businesses and individuals with excellence for over 12 years"
+  }
+]

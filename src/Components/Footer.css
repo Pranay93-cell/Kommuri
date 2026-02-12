@@ -1,0 +1,227 @@
+/* ===== FOOTER STYLES ===== */
+.footer {
+  display:flex;
+  background-color: #1f2937;
+  color: white;
+  padding: 48px 20px 24px;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+/* Footer Sections */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  border-radius: 2px;
+}
+
+.footer-section p {
+  color: #9ca3af;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9ca3af;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: white;
+}
+
+.contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+/* Footer Lists */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-section ul li a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Divider */
+.footer-divider {
+  border-top: 1px solid #374151;
+  margin: 24px 0 20px;
+  width: 100%;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+  padding-top: 8px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .footer-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+  }
+
+  .footer-section p {
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .footer-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section ul li a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 16px 16px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-section p {
+    font-size: 13px;
+  }
+
+  .contact-item {
+    font-size: 13px;
+  }
+
+  .footer-section ul li {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+/* ===== ENSURE FOOTER STAYS AT BOTTOM ===== */
+/* Add this to your main App.css or global CSS */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto;
+  width: 100%;
+}
