@@ -32,7 +32,7 @@
 }
 
 .logo img {
-  height: 40px;      /* Slightly larger for better visibility */
+  height: 60px;      /* Slightly larger for better visibility */
   width: auto;       /* Maintain aspect ratio */
   object-fit: contain;
 }
