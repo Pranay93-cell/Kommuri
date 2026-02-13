@@ -21,7 +21,8 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <Mail size={14} />
-                <span>info@kommuriprinters.com</span>
+                <a href="mailto:youremail@gmail.com">kommuriprinters@gmail.com</a>
+
               </div>
               <div className="contact-item">
                 <MapPin size={14} />

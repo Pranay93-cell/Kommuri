@@ -5,6 +5,8 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
+import WhatsAppButton from "./components/WhatsAppButton";
+
 //import "./Home.css";
 //import ".Pages/Services.css";
 
@@ -20,7 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
         </Routes>
-      </AnimatePresence>
+      </AnimatePresence><WhatsAppButton />
       <Footer />
     </>
   );
