@@ -33,23 +33,17 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
+            
           </div>
 
           {/* Services */}
           <div className="footer-section">
             <h3>Services</h3>
             <ul>
-              <li><Link to="/services/business-cards">Business Cards</Link></li>
-              <li><Link to="/services/brochures">Brochures</Link></li>
-              <li><Link to="/services/banners">Banners</Link></li>
-              <li><Link to="/services/packaging">Packaging</Link></li>
+              <li>Business Cards</li>
+              <li>Brochures</li>
+              <li>Banners</li>
+              <li>Packaging</li>
             </ul>
           </div>
         </div>

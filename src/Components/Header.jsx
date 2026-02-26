@@ -17,11 +17,18 @@ const Header = () => {
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/services">Services</Link></li>
-          <li>Gallery</li>
-          <li>Contact</li>
+          <li><Link to="/gallery">Gallery</Link></li>
+          
         </ul>
 
-        <a href="tel:+919618015437" className="call-btn">
+        <a
+          href="tel:+919618015437"
+          className="call-btn"
+          onClick={() => {
+            // fallback in case default link behavior is blocked
+            window.location.href = "tel:+919618015437";
+          }}
+        >
           Call Now
         </a>
 
@@ -39,7 +46,7 @@ const Header = () => {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/services">Services</Link></li>
-            <li>Gallery</li>
+            <li><Link to="/gallery">Gallery</Link></li>
             <li>Contact</li>
           </ul>
         </div>

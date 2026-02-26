@@ -92,9 +92,7 @@ const HeroContent = () => (
         <ArrowRight className="button-arrow" />
       </Link>
       
-      <Link to="/contact" className="secondary-button">
-        Contact Us
-      </Link>
+      
     </div>
 
     <TrustIndicators />

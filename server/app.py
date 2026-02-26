@@ -16,7 +16,7 @@ DB_CONFIG = {
 def get_db_connection():
     return mysql.connector.connect(**DB_CONFIG)
 
-# Raw SQL queries using MySQL Connector
+# Raw SQL queries using MySQL C56  onnector
 @app.route('/api/services', methods=['GET'])
 def get_services():
     conn = get_db_connection()
@@ -42,7 +42,12 @@ def add_service():
 def get_gallery():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM gallery")
+    # allow optional filtering by service_id
+    service_id = request.args.get('service_id')
+    if service_id:
+        cursor.execute("SELECT * FROM gallery WHERE service_id = %s", (service_id,))
+    else:
+        cursor.execute("SELECT * FROM gallery")
     gallery = cursor.fetchall()
     cursor.close()
     conn.close()
@@ -53,8 +58,16 @@ def add_gallery_item():
     data = request.get_json()
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO gallery (title, image_url, description) VALUES (%s, %s, %s)", 
-                   (data['title'], data['image_url'], data.get('description')))
+    # expecting service_id to link gallery item to a service
+    cursor.execute(
+        "INSERT INTO gallery (title, image_url, description, service_id) VALUES (%s, %s, %s, %s)", 
+        (
+            data['title'],
+            data['image_url'],
+            data.get('description'),
+            data.get('service_id')
+        )
+    )
     conn.commit()
     cursor.close()
     conn.close()

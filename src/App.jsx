@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
+import Gallery from "./Pages/Gallery";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 //import "./Home.css";
@@ -21,6 +22,8 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery/:serviceId" element={<Gallery />} />
         </Routes>
       </AnimatePresence><WhatsAppButton />
       <Footer />
