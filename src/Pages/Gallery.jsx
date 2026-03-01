@@ -2,91 +2,68 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Gallery.css";
 
+
 const Gallery = () => {
-  const { serviceId } = useParams();
-  const [allItems, setAllItems] = useState([]);
-  const [serviceTitle, setServiceTitle] = useState("");
 
-  useEffect(() => {
-    
-    // fetch all gallery items once
-    const fetchGallery = async () => {
-      try {
-        const res = await fetch(`/api/gallery`);
-        const data = await res.json();
-        setAllItems(data);
-      } catch (err) {
-        console.error("Error fetching gallery:", err);
-      }
-    };
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    fetchGallery();
-  }, []);
-
-  useEffect(() => {
-    if (!serviceId) return;
-    const fetchService = async () => {
-      try {
-        const res = await fetch(`/api/services`);
-        const data = await res.json();
-        const service = data.find((s) => String(s.id) === serviceId);
-        setServiceTitle(service ? service.title : "");
-      } catch (err) {
-        console.error("Error fetching service title:", err);
-      }
-    };
-
-    fetchService();
-  }, [serviceId]);
-
-  // partition items based on service selection
-  const currentItems = serviceId
-    ? allItems.filter((i) => String(i.service_id) === serviceId)
-    : allItems;
-  const otherItems = serviceId
-    ? allItems.filter((i) => String(i.service_id) !== serviceId)
-    : [];
+  const galleryImages = [
+    "/images/img1.png",
+    "/images/img2.png",
+    "/images/img3.png",
+    "/images/img4.png",
+    "/images/img5.png",
+    "/images/img5.png",
+    "/images/img5.png"
+  ];
 
   return (
-    <div className="gallery-container">
-      <h1>Gallery {serviceTitle && `- ${serviceTitle}`}</h1>
+    <section className="gallery-section">
 
-      {currentItems.length === 0 && serviceId && (
-        <p>No items for this service yet.</p>
-      )}
+      <h2 className="gallery-title">Our Services Gallery</h2>
 
-      {currentItems.length > 0 && (
-        <div className="gallery-grid">
-          {currentItems.map((i) => (
-            <div key={i.id} className="gallery-card">
-              <img src={i.image_url} alt={i.title} />
-              <h3>{i.title}</h3>
-              <p>{i.description}</p>
-            </div>
-          ))}
+      <div className="gallery-container">
+        {galleryImages.map((image, index) => (
+          <div className="gallery-card" key={index}>
+            <img
+              src={image}
+              alt={`Gallery ${index + 1}`}
+              loading="lazy"
+              onClick={() => setSelectedImage(image)}
+              className="gallery-image"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Modal Popup */}
+      {selectedImage && (
+        <div 
+          className="modal-overlay"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}  // prevents closing when clicking image
+          >
+            <span 
+              className="close-btn"
+              onClick={() => setSelectedImage(null)}
+            >
+              &times;
+            </span>
+            <img 
+              src={selectedImage}
+              alt="Popup"
+              className="modal-image"
+            />
+          </div>
         </div>
       )}
 
-      {otherItems.length > 0 && (
-        <>
-          <h2>Other services</h2>
-          <div className="gallery-grid">
-            {otherItems.map((i) => (
-              <div key={i.id} className="gallery-card">
-                <img src={i.image_url} alt={i.title} />
-                <h3>{i.title}</h3>
-                <p>{i.description}</p>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
-      <Link to="/services" className="back-link">
-        ← Back to Services
-      </Link>
-    </div>
+    </section>
   );
 };
+
 
 export default Gallery;

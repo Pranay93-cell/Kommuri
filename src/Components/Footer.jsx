@@ -17,12 +17,12 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <Phone size={14} />
-                <span>+91-9999-999-999</span>
+                <span>+91 9848670271</span>
+                <span>+91 9640976362</span>
               </div>
               <div className="contact-item">
                 <Mail size={14} />
-                <a href="mailto:youremail@gmail.com">kommuriprinters@gmail.com</a>
-
+                  <a href="https://mail.google.com/mail/?view=cm&to=kommuriprinters@gmail.com" target="_blank" rel="noopener noreferrer">kommuriprinters@gmail.com</a>
               </div>
               <div className="contact-item">
                 <MapPin size={14} />
